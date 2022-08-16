@@ -5,9 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Fonts -->
+
+    <!-- Icons -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Icons -->
+
     <title>Dairy</title>
   </head>
   <body>
+    <div class="plan-list">
+      <div class="plan-list__title"><span>Plan for the day</span></div>
+      <div class="plan-list__inner">
+        <div class="plan-list__field">
+          <button class="plan-list__lable"></button>
+          <textarea
+            class="plan-list__input"
+            type="text"
+            placeholder="Exercise 1"
+          ></textarea>
+        </div>
+        <div class="plan-list__btn">
+          <div class="plan-list__add-btn">
+            <ion-icon name="add-outline"></ion-icon>
+            <!-- <span>add</span> -->
+          </div>
+          <div class="plan-list__remove-btn">
+            <ion-icon name="remove-outline"></ion-icon>
+            <!-- <span>remove</span> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="example-list-field">
+      <button class="plan-list__lable"></button>
+      <textarea
+        class="plan-list__input"
+        type="text"
+        placeholder="Exercise 1"
+      ></textarea>
+    </div>
     <script src="js/main.js"></script>
   </body>
 </html>
