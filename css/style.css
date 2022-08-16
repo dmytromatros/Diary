@@ -109,7 +109,7 @@ body {
   width: 250px;
   background-color: #fff;
   border-radius: 20px;
-  overflow: hidden;
+  position: relative;
 }
 
 .plan-list__title {
@@ -129,6 +129,30 @@ body {
 
 .plan-list__title::first-letter {
   text-transform: capitalize;
+}
+
+.plan-list__save-btn {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  top: -35px;
+  right: 0;
+  background-color: #fff;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding-bottom: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 25px;
+  color: #89e3a0;
+  cursor: pointer;
 }
 
 .plan-list__inner {
@@ -212,6 +236,7 @@ body {
           justify-content: space-between;
   font-size: 20px;
   border-top: 1px solid #89e3a0;
+  margin-top: 20px;
   cursor: pointer;
 }
 
@@ -235,11 +260,13 @@ body {
 .plan-list__add-btn {
   color: #89e3a0;
   background-color: #e5faea;
+  border-bottom-left-radius: 15px;
 }
 
 .plan-list__remove-btn {
   color: #e38989;
   background-color: #fae5e5;
+  border-bottom-right-radius: 15px;
 }
 
 .example-list-field {
