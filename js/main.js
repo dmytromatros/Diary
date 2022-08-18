@@ -1,140 +1,212 @@
 "use strict";
 listFunction();
+
 function listFunction() {
-  let lableChek = document.querySelectorAll(".plan-list .plan-list__lable");
-  let addBtn = document.querySelector(".plan-list__add-btn");
-  // let planInner = document.querySelector(".plan-list__inner");
-  let removeBtn = document.querySelector(".plan-list__remove-btn");
-  let saveList = document.querySelector(".plan-list__save-btn");
+  // localStorage.clear();
 
-  let planField;
-  let newField;
-  let arrPlanLielr;
-  let fieldCount = localStorage.getItem("fieldCount");
+  let plnaListList = localStorage.getItem("listCount");
+  if (plnaListList == "NaN") {
+    plnaListList = 0;
+  }
 
-  if (fieldCount <= 0) {
-    fieldCount = 1;
-    newField = document.querySelector(".example-list-field").cloneNode(true);
-    newField.classList.add("plan-list__field");
-    newField.classList.remove("example-list-field");
-    document.querySelector(".plan-list__inner").append(newField);
-    lableChek = document.querySelectorAll(".plan-list .plan-list__lable");
+  let addNewList = document.querySelectorAll(".plan-list__add-new-list");
+  let saveList = document.querySelectorAll(".plan-list__save-btn");
+  // let removeList = document.querySelector(".plan-list__remove-list");
+  let removeTickInList;
+  addNewList.forEach((e) => {
+    e.addEventListener("click", () => {
+      let newList = document.querySelector(".exampl-list").cloneNode(true);
+      newList.classList.add("plan-list");
+      newList.classList.remove("exampl-list");
+      document.querySelector(".plan-list-main").append(newList);
+      plnaListList++;
 
-    lableChek.forEach((e) => {
-      let eventFunc = function () {
-        planField = e.parentElement;
-        planField.classList.toggle("disabled-field");
-        e.classList.toggle("active-lable");
-      };
-      e.onclick = eventFunc;
+      afterAddFunc(newList, 0, 0);
     });
-  } else if (fieldCount > 0) {
-    console.log(fieldCount);
-    for (let index = 0; index < fieldCount; index++) {
-      let obj = localStorage.getItem(`field ${index}`);
-      obj = JSON.parse(obj);
-      console.log(obj);
+  });
 
+  let afterAddFunc = function (newNode, fieldCount, listIndex, title) {
+    let lableChek = newNode.querySelectorAll(".plan-list .plan-list__lable");
+    let addBtn = newNode.querySelector(".plan-list__add-btn");
+    let removeBtn = newNode.querySelector(".plan-list__remove-btn");
+    let planField;
+    let newField;
+    let arrPlanLielr;
+
+    if (fieldCount <= 0) {
+      fieldCount = 1;
       newField = document.querySelector(".example-list-field").cloneNode(true);
       newField.classList.add("plan-list__field");
       newField.classList.remove("example-list-field");
-      newField.lastElementChild.value = obj.value;
-      if (obj.enabled == true) {
-        newField.classList.add("disabled-field");
-        newField.firstElementChild.classList.add("active-lable");
-      }
 
-      document.querySelector(".plan-list__inner").append(newField);
-    }
-    lableChek = document.querySelectorAll(".plan-list .plan-list__lable");
+      newNode.querySelector(".plan-list__inner").append(newField);
+      lableChek = newNode.querySelectorAll(".plan-list .plan-list__lable");
 
-    lableChek.forEach((e) => {
-      let eventFunc = function () {
-        planField = e.parentElement;
-        planField.classList.toggle("disabled-field");
-        e.classList.toggle("active-lable");
-      };
-      e.onclick = eventFunc;
-    });
-  }
-
-  lableChek.forEach((e) => {
-    let eventFunc = function () {
-      planField = e.parentElement;
-      planField.classList.toggle("disabled-field");
-      e.classList.toggle("active-lable");
-    };
-    e.onclick = eventFunc;
-  });
-
-  addBtn.addEventListener("click", () => {
-    arrPlanLielr = document.querySelectorAll(".plan-list__field");
-    fieldCount = arrPlanLielr.length + 1;
-    newField = document.querySelector(".example-list-field").cloneNode(true);
-    newField.classList.add("plan-list__field");
-    newField.classList.remove("example-list-field");
-    newField.lastElementChild.setAttribute(
-      "placeholder",
-      `Exercise ${arrPlanLielr.length + 1}`
-    );
-    if (arrPlanLielr.length > 0) {
-      arrPlanLielr[arrPlanLielr.length - 1].after(newField);
-    } else {
-      document.querySelector(".plan-list__inner").prepend(newField);
-    }
-    lableChek = document.querySelectorAll(".plan-list .plan-list__lable");
-
-    lableChek.forEach((e) => {
-      let eventFunc = function () {
-        planField = e.parentElement;
-        planField.classList.toggle("disabled-field");
-        e.classList.toggle("active-lable");
-      };
-      e.onclick = eventFunc;
-    });
-  });
-
-  removeBtn.addEventListener("click", () => {
-    let removeArr = document.querySelectorAll(".disabled-field");
-
-    if (removeArr.length > 0) {
-      removeArr.forEach((e) => {
-        e.remove();
+      lableChek.forEach((e) => {
+        let eventFunc = function () {
+          planField = e.parentElement;
+          planField.classList.toggle("disabled-field");
+          e.classList.toggle("active-lable");
+        };
+        e.onclick = eventFunc;
       });
-    } else {
-      console.log("nothing remove");
-    }
-    let allInputsList = document.querySelectorAll(".plan-list__input");
-    fieldCount = fieldCount - removeArr.length;
-    for (let i = 0; i < allInputsList.length - 1; i++) {
-      allInputsList[i].setAttribute("placeholder", `Exercise ${i + 1}`);
-    }
-  });
+    } else if (fieldCount > 0) {
+      for (let index = 0; index < fieldCount; index++) {
+        let obj = localStorage.getItem(`list${listIndex} field${index}`);
+        obj = JSON.parse(obj);
+        newField = document
+          .querySelector(".example-list-field")
+          .cloneNode(true);
+        newField.classList.add("plan-list__field");
+        newField.classList.remove("example-list-field");
 
-  saveList.addEventListener("click", () => {
-    localStorage.clear();
-    localStorage.setItem("fieldCount", fieldCount);
-    // let c = localStorage.getItem("fieldCount");
-    // console.log(c);
-    arrPlanLielr = document.querySelectorAll(".plan-list__field");
+        newField.lastElementChild.value = obj.value;
+        if (newField.lastElementChild.value == "") {
+          newField.lastElementChild.setAttribute(
+            "placeholder",
+            `Exercise ${index + 1}`
+          );
+        }
+        if (obj.enabled == true) {
+          newField.classList.add("disabled-field");
+          newField.firstElementChild.classList.add("active-lable");
+        }
 
-    for (let index = 0; index < arrPlanLielr.length; index++) {
-      let fieldObj = {
-        enabled: false,
-        value: "text",
-      };
-
-      if (arrPlanLielr[index].classList.contains("disabled-field")) {
-        fieldObj.enabled = true;
+        newNode.querySelector(".plan-list__inner").append(newField);
+        newNode.querySelector(".plan-list__title-value").value = title;
       }
-      fieldObj.value = arrPlanLielr[index].lastElementChild.value;
+      lableChek = newNode.querySelectorAll(".plan-list .plan-list__lable");
 
-      let storageObj = JSON.stringify(fieldObj);
-      localStorage.setItem(`field ${index}`, storageObj);
+      lableChek.forEach((e) => {
+        let eventFunc = function () {
+          planField = e.parentElement;
+          planField.classList.toggle("disabled-field");
+          e.classList.toggle("active-lable");
+        };
+        e.onclick = eventFunc;
+      });
     }
-    // for (let index = 0; index < arrPlanLielr.length; index++) {
-    //   let a = localStorage.getItem(`field ${index}`);
-    //   console.log(a);
-    // }
+
+    lableChek.forEach((e) => {
+      let eventFunc = function () {
+        planField = e.parentElement;
+        planField.classList.toggle("disabled-field");
+        e.classList.toggle("active-lable");
+      };
+      e.onclick = eventFunc;
+    });
+
+    addBtn.addEventListener("click", () => {
+      arrPlanLielr = newNode.querySelectorAll(".plan-list__field");
+      fieldCount = arrPlanLielr.length + 1;
+      newField = document.querySelector(".example-list-field").cloneNode(true);
+      newField.classList.add("plan-list__field");
+      newField.classList.remove("example-list-field");
+      newField.lastElementChild.setAttribute(
+        "placeholder",
+        `Exercise ${arrPlanLielr.length + 1}`
+      );
+      if (arrPlanLielr.length > 0) {
+        arrPlanLielr[arrPlanLielr.length - 1].after(newField);
+      } else {
+        newNode.querySelector(".plan-list__inner").prepend(newField);
+      }
+      lableChek = newNode.querySelectorAll(".plan-list .plan-list__lable");
+
+      lableChek.forEach((e) => {
+        let eventFunc = function () {
+          planField = e.parentElement;
+          planField.classList.toggle("disabled-field");
+          e.classList.toggle("active-lable");
+        };
+        e.onclick = eventFunc;
+      });
+    });
+
+    removeBtn.addEventListener("click", () => {
+      let removeArr = newNode.querySelectorAll(".disabled-field");
+      if (removeArr.length > 0) {
+        removeArr.forEach((e) => {
+          e.remove();
+        });
+      }
+      let allInputsList = newNode.querySelectorAll(".plan-list__input");
+      fieldCount = fieldCount - removeArr.length;
+      for (let i = 0; i < allInputsList.length - 1; i++) {
+        allInputsList[i].setAttribute("placeholder", `Exercise ${i + 1}`);
+      }
+    });
+    removeTickInList = document.querySelectorAll(
+      ".plan-list-main .plan-list__remove-all-btn"
+    );
+    removeTickInList.forEach((e) => {
+      e.onclick = function () {
+        console.log(removeTickInList);
+        e.parentElement.parentElement.remove();
+      };
+    });
+  };
+  if (plnaListList > 0) {
+    for (let index = 0; index < plnaListList; index++) {
+      let newList = document.querySelector(".exampl-list").cloneNode(true);
+      newList.classList.add("plan-list");
+      newList.classList.remove("exampl-list");
+      document.querySelector(".plan-list-main").append(newList);
+      let fieldCount = localStorage.getItem(`list${index} fieldcount`);
+      let title = localStorage.getItem(`list${index} title`);
+      afterAddFunc(newList, fieldCount, index, title);
+    }
+  }
+  if (plnaListList <= 0) {
+    let newList = document.querySelector(".exampl-list").cloneNode(true);
+    newList.classList.add("plan-list");
+    newList.classList.remove("exampl-list");
+    document.querySelector(".plan-list-main").append(newList);
+    plnaListList++;
+    afterAddFunc(newList, 0, 0);
+  }
+  saveList.forEach((e) => {
+    e.addEventListener("click", () => {
+      localStorage.clear();
+      plnaListList = document.querySelectorAll(".plan-list").length;
+      localStorage.setItem("listCount", plnaListList);
+      plnaListList = document.querySelectorAll(".plan-list");
+      for (let ind = 0; ind < plnaListList.length; ind++) {
+        let fieldCount =
+          plnaListList[ind].querySelectorAll(".plan-list__field");
+        localStorage.setItem(`list${ind} fieldcount`, fieldCount.length);
+        let title = plnaListList[ind].querySelector(
+          ".plan-list__title-value"
+        ).value;
+        localStorage.setItem(`list${ind} title`, title);
+        for (let fc = 0; fc < fieldCount.length; fc++) {
+          let fieldObj = {
+            enabled: false,
+            value: "text",
+          };
+          if (fieldCount[fc].classList.contains("disabled-field")) {
+            fieldObj.enabled = true;
+          }
+          fieldObj.value = fieldCount[fc].lastElementChild.value;
+          let storageObj = JSON.stringify(fieldObj);
+          localStorage.setItem(`list${ind} field${fc}`, storageObj);
+        }
+      }
+    });
   });
+
+  // removeList.addEventListener("click", () => {
+  //   let listToRemove = document.querySelectorAll(".list-to-remove");
+  //   let errorMes = document.querySelector(".plan-list__remove-list-helper");
+  //   if (listToRemove.length > 0) {
+  //     listToRemove.forEach((e) => {
+  //       e.e.remove();
+  //     });
+  //   } else if (listToRemove.length <= 0) {
+  //     errorMes.style.transform = "translateY(0)";
+  //     setInterval(() => {
+  //       errorMes.style.transform = "translateY(-200%)";
+  //     }, 2000);
+  //   }
+  // });
 }

@@ -29,10 +29,28 @@
     <title>Dairy</title>
   </head>
   <body>
-    <div class="plan-list">
-      <div class="plan-list__save-btn">
-        <ion-icon name="bookmark-outline"></ion-icon>
-      </div>
+    <div class="coontainer">
+      <div class="plan-list-main">
+        <div class="plan-list__save-btn big-screen">
+          <ion-icon name="bookmark-outline"></ion-icon>
+        </div>
+        <div class="plan-list__add-new-list big-screen">
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </div>
+        <div class="plan-list__small-screen-btn">
+          <div class="plan-list__save-btn small-screen">
+            <span>Save list</span>
+          </div>
+          <div class="plan-list__add-new-list small-screen">
+            <span>Add list</span>
+          </div>
+        </div>
+
+        <!-- <div class="plan-list__remove-list">
+        <ion-icon name="trash-outline"></ion-icon>
+      </div> -->
+
+        <!-- <div class="plan-list">
       <div class="plan-list__title"><span>Plan for the day</span></div>
       <div class="plan-list__inner"></div>
       <div class="plan-list__btn">
@@ -43,14 +61,48 @@
           <ion-icon name="remove-outline"></ion-icon>
         </div>
       </div>
+    </div> -->
+      </div>
     </div>
-    <div class="example-list-field">
-      <button class="plan-list__lable"></button>
-      <textarea
-        class="plan-list__input"
-        type="text"
-        placeholder="Exercise 1"
-      ></textarea>
+
+    <div class="examples">
+      <div class="example-list-field">
+        <button class="plan-list__lable">
+          <ion-icon
+            class="plan-list__done-tick"
+            name="checkmark-outline"
+          ></ion-icon>
+        </button>
+        <textarea
+          class="plan-list__input"
+          type="text"
+          placeholder="Exercise 1"
+        ></textarea>
+      </div>
+      <div class="exampl-list">
+        <div class="plan-list__title">
+          <input
+            class="plan-list__title-value"
+            type="text"
+            placeholder="List name"
+          />
+          <button class="plan-list__remove-all-btn">
+            <ion-icon name="close-circle-outline"></ion-icon>
+          </button>
+        </div>
+        <div class="plan-list__inner"></div>
+        <div class="plan-list__btn">
+          <div class="plan-list__add-btn">
+            <ion-icon name="add-outline"></ion-icon>
+          </div>
+          <div class="plan-list__remove-btn">
+            <ion-icon name="remove-outline"></ion-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="plan-list__remove-list-helper">
+      Select the lists you want to delete.
     </div>
     <script src="js/main.js"></script>
   </body>
