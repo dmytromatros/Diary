@@ -94,7 +94,6 @@ body {
   //   rgba(34, 193, 195, 0.4) 0%,
   //   rgba(253, 187, 45, 0.4) 100%
   // );
-  background-color: rgb(255, 253, 216);
   font-family: $mainFont;
   height: auto;
   min-height: 100%;
@@ -112,7 +111,7 @@ body {
   justify-content: center;
   .plan-list {
     width: 300px;
-    background-color: #fff;
+    background-color: rgb(255, 253, 216);
     border-radius: 20px;
     // overflow: hidden;
     position: relative;
@@ -132,12 +131,13 @@ body {
         font-size: 20px;
         width: 85%;
         padding: 0 15px;
+        background-color: transparent;
       }
     }
     &__remove-all-btn {
-      width: 23px;
-      height: 23px;
-      font-size: 25px;
+      width: 28px;
+      height: 28px;
+      font-size: 30px;
       background-color: transparent;
       margin-top: -5px;
       color: rgb(227, 137, 137);
@@ -160,7 +160,6 @@ body {
       justify-content: space-between;
       align-items: center;
       padding: 0 20px;
-      // gap: 10px;
     }
     .disabled-field {
       position: relative;
@@ -181,13 +180,12 @@ body {
       height: 45px;
       font-size: 20px;
       padding-left: 5px;
-      // border-bottom: 1px solid black;
       resize: inherit;
       line-height: 1;
       padding-top: 12px;
-      // border-radius: 15px;
       box-shadow: $insetShadow;
       border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.4);
     }
 
     &__lable {
@@ -196,7 +194,7 @@ body {
       height: 25px;
       border-radius: 5px;
       border: 1px solid rgb(203, 203, 203);
-      background-color: rgb(224, 222, 222);
+      background-color: rgba(224, 222, 222, 0.7);
       cursor: pointer;
       margin-top: 7px;
       .plan-list__done-tick {
@@ -218,9 +216,9 @@ body {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 20px;
       border-top: 1px solid $exListGreen;
       margin-top: 20px;
+
       cursor: pointer;
       ion-icon {
         font-size: 30px;
@@ -238,11 +236,13 @@ body {
       color: $exListGreen;
       background-color: rgb(229, 250, 234);
       border-bottom-left-radius: 15px;
+      padding: 5px 0;
     }
     &__remove-btn {
       color: rgb(227, 137, 137);
       background-color: rgb(250, 229, 229);
       border-bottom-right-radius: 15px;
+      padding: 5px 0;
     }
   }
 }

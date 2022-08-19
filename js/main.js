@@ -26,6 +26,7 @@ function listFunction() {
   });
 
   let afterAddFunc = function (newNode, fieldCount, listIndex, title) {
+    randomColor(newNode);
     let lableChek = newNode.querySelectorAll(".plan-list .plan-list__lable");
     let addBtn = newNode.querySelector(".plan-list__add-btn");
     let removeBtn = newNode.querySelector(".plan-list__remove-btn");
@@ -209,4 +210,29 @@ function listFunction() {
   //     }, 2000);
   //   }
   // });
+}
+
+function randomColor(newNode) {
+  let colorCheck = Math.floor(Math.random() * 10);
+  console.log(colorCheck);
+  if (colorCheck == 1) {
+  } else if (colorCheck == 2) {
+    newNode.style.backgroundColor = "rgb(255, 253, 216)";
+  } else if (colorCheck == 3) {
+    newNode.style.backgroundColor = "rgb(255, 216, 216)";
+  } else if (colorCheck == 4) {
+    newNode.style.backgroundColor = "rgb(217, 255, 216)";
+  } else if (colorCheck == 5) {
+    newNode.style.backgroundColor = "rgb(216, 221, 255)";
+  } else if (colorCheck == 6) {
+    newNode.style.backgroundColor = "rgb(207, 225, 216)";
+  } else if (colorCheck == 7) {
+    newNode.style.backgroundColor = "rgb(213, 216, 216)";
+  } else if (colorCheck == 8) {
+    newNode.style.backgroundColor = "rgb(217, 248, 216)";
+  } else if (colorCheck == 9) {
+    newNode.style.backgroundColor = "rgb(216, 221, 255)";
+  } else {
+    newNode.style.backgroundColor = "rgb(255, 216, 216)";
+  }
 }
