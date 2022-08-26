@@ -85,30 +85,116 @@ $mainFont: "Poppins", sans-serif;
 $exListGreen: rgb(137, 227, 160);
 $mainShadox: 1px 1px 12px 1px #999;
 $insetShadow: 0px -10px 5px -8px rgba(143, 143, 143, 0.6) inset;
+$dashboardWidth: 250px;
+$dashboardColor: rgb(92, 105, 253);
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  // background: linear-gradient(
-  //   326deg,
-  //   rgba(34, 193, 195, 0.4) 0%,
-  //   rgba(253, 187, 45, 0.4) 100%
-  // );
   font-family: $mainFont;
   height: auto;
   min-height: 100%;
 }
 .coontainer {
-  padding: 0 20px;
-  padding-left: 150px;
   min-height: 100%;
+  margin-left: $dashboardWidth;
 }
+.dashboard {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: $dashboardWidth;
+  height: 100vh;
+  overflow: hidden;
+  overflow-y: scroll;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  box-shadow: 5px 0 5px 0px rgb(230, 230, 230);
+  &__title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 20px;
+    height: 70px;
+    background-color: $dashboardColor;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+  }
+  ul {
+    margin-top: 10px;
+  }
+  &__li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10px;
+    gap: 40px;
+    height: 50px;
+    margin-bottom: 10px;
+    ion-icon {
+      font-size: 30px;
+      background-color: $dashboardColor;
+      padding: 5px;
+      border-radius: 8px;
+      color: #fff;
+    }
+    span {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: $dashboardColor;
+    }
+    &:hover {
+      background-color: $dashboardColor;
+      border-radius: 15px;
+      ion-icon {
+        color: $dashboardColor;
+        background-color: #fff;
+      }
+      span {
+        color: #fff;
+      }
+    }
+  }
+  .active-dashboard-li {
+    position: relative;
+    background-color: $dashboardColor;
+    border-radius: 15px;
+    ion-icon {
+      color: $dashboardColor;
+      background-color: #fff;
+    }
+    span {
+      color: #fff;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      right: 10px;
+      top: 0;
+      border: 0 solid transparent;
+      border-bottom-width: 9px;
+      border-top-width: 9px;
+      border-left: 25px solid #fff;
+      margin-top: 17.5px;
+    }
+  }
+  /* width */
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+}
+
 .plan-list-main {
   display: flex;
   flex-wrap: wrap;
   gap: 50px;
   align-items: center;
   justify-content: center;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
   .plan-list {
     width: 300px;
     background-color: rgb(255, 253, 216);
@@ -223,8 +309,6 @@ body {
       ion-icon {
         font-size: 30px;
       }
-      span {
-      }
       div {
         width: 50%;
         display: flex;
@@ -254,11 +338,11 @@ body {
   display: none;
 }
 .big-screen {
-  position: fixed;
+  position: absolute;
   height: 50px;
   width: 50px;
-  bottom: 150px;
-  left: 50px;
+  left: 0;
+  bottom: 0;
   background-color: #fff;
   border-radius: 15px;
   display: flex;

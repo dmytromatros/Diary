@@ -29,6 +29,22 @@
     <title>Dairy</title>
   </head>
   <body>
+    <aside class="dashboard">
+      <div class="dashboard__title">
+        <span>My dairy</span>
+        <ion-icon name="list-outline"></ion-icon>
+      </div>
+      <ul>
+        <li class="dashboard__li active-dashboard-li">
+          <ion-icon name="checkbox-outline"></ion-icon>
+          <span>Plan list </span>
+        </li>
+        <li class="dashboard__li">
+          <ion-icon name="albums-outline"></ion-icon>
+          <span>My notes</span>
+        </li>
+      </ul>
+    </aside>
     <div class="coontainer">
       <div class="plan-list-main">
         <div class="plan-list__save-btn big-screen">
@@ -63,6 +79,7 @@
       </div>
     </div> -->
       </div>
+      <div class="notes-block-main"></div>
     </div>
 
     <div class="examples">
@@ -104,6 +121,7 @@
     <div class="plan-list__remove-list-helper">
       Select the lists you want to delete.
     </div>
-    <script src="js/main.js"></script>
+    <script src="js/planList.js"></script>
+    <script src="js/dashboard.js"></script>
   </body>
 </html>
