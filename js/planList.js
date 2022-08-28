@@ -18,7 +18,7 @@ function listFunction() {
       let newList = document.querySelector(".exampl-list").cloneNode(true);
       newList.classList.add("plan-list");
       newList.classList.remove("exampl-list");
-      document.querySelector(".plan-list-main").append(newList);
+      document.querySelector(".plan-list-main__inner").append(newList);
       plnaListList++;
 
       afterAddFunc(newList, 0, 0);
@@ -142,7 +142,7 @@ function listFunction() {
     );
     removeTickInList.forEach((e) => {
       e.onclick = function () {
-        console.log(removeTickInList);
+        // console.log(removeTickInList);
         e.parentElement.parentElement.remove();
       };
     });
@@ -152,7 +152,7 @@ function listFunction() {
       let newList = document.querySelector(".exampl-list").cloneNode(true);
       newList.classList.add("plan-list");
       newList.classList.remove("exampl-list");
-      document.querySelector(".plan-list-main").append(newList);
+      document.querySelector(".plan-list-main__inner").append(newList);
       let fieldCount = localStorage.getItem(`list${index} fieldcount`);
       let title = localStorage.getItem(`list${index} title`);
       afterAddFunc(newList, fieldCount, index, title);
@@ -162,7 +162,7 @@ function listFunction() {
     let newList = document.querySelector(".exampl-list").cloneNode(true);
     newList.classList.add("plan-list");
     newList.classList.remove("exampl-list");
-    document.querySelector(".plan-list-main").append(newList);
+    document.querySelector(".plan-list-main__inner").append(newList);
     plnaListList++;
     afterAddFunc(newList, 0, 0);
   }
@@ -214,7 +214,7 @@ function listFunction() {
 
 function randomColor(newNode) {
   let colorCheck = Math.floor(Math.random() * 10);
-  console.log(colorCheck);
+  // console.log(colorCheck);
   if (colorCheck == 1) {
   } else if (colorCheck == 2) {
     newNode.style.backgroundColor = "rgb(255, 253, 216)";

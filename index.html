@@ -35,51 +35,61 @@
         <ion-icon name="list-outline"></ion-icon>
       </div>
       <ul>
-        <li class="dashboard__li active-dashboard-li">
+        <li class="dashboard__li plan-li">
           <ion-icon name="checkbox-outline"></ion-icon>
           <span>Plan list </span>
         </li>
-        <li class="dashboard__li">
+        <li class="dashboard__li note-li">
           <ion-icon name="albums-outline"></ion-icon>
           <span>My notes</span>
         </li>
       </ul>
     </aside>
     <div class="coontainer">
+      <div class="welcome-block active-main-block" style="display: flex">
+        Welcome!
+        <span>Choose your category...</span>
+      </div>
       <div class="plan-list-main">
-        <div class="plan-list__save-btn big-screen">
-          <ion-icon name="bookmark-outline"></ion-icon>
-        </div>
-        <div class="plan-list__add-new-list big-screen">
-          <ion-icon name="add-circle-outline"></ion-icon>
-        </div>
-        <div class="plan-list__small-screen-btn">
-          <div class="plan-list__save-btn small-screen">
-            <span>Save list</span>
+        <div class="plan-list-main__inner">
+          <div class="main__title">Here is your plan!</div>
+          <div class="plan-list__big-screen-btn">
+            <div class="plan-list__save-btn big-screen">
+              <ion-icon name="bookmark-outline"></ion-icon>
+            </div>
+            <div class="plan-list__add-new-list big-screen">
+              <ion-icon name="add-circle-outline"></ion-icon>
+            </div>
           </div>
-          <div class="plan-list__add-new-list small-screen">
-            <span>Add list</span>
+          <div class="plan-list__small-screen-btn">
+            <div class="plan-list__save-btn small-screen">
+              <span>Save list</span>
+            </div>
+            <div class="plan-list__add-new-list small-screen">
+              <span>Add list</span>
+            </div>
           </div>
-        </div>
-
-        <!-- <div class="plan-list__remove-list">
-        <ion-icon name="trash-outline"></ion-icon>
-      </div> -->
-
-        <!-- <div class="plan-list">
-      <div class="plan-list__title"><span>Plan for the day</span></div>
-      <div class="plan-list__inner"></div>
-      <div class="plan-list__btn">
-        <div class="plan-list__add-btn">
-          <ion-icon name="add-outline"></ion-icon>
-        </div>
-        <div class="plan-list__remove-btn">
-          <ion-icon name="remove-outline"></ion-icon>
         </div>
       </div>
-    </div> -->
+      <div class="notes-block-main">
+        <div class="notes-block-main__inner">
+          <div class="main__title">Here is your notes!</div>
+          <div class="notes-block-main__inner">
+            <button class="plus">+</button>
+            <span class="fz-count">24</span>
+            <button class="minus">-</button>
+            <div class="one-note">
+              <div class="one-note__title">
+                <input type="text" placeholder="Note name" />
+              </div>
+              <div class="one-note__textarea">
+                <textarea class="textarea-note"></textarea>
+                <textarea class="textarea-note-hidden" disabled></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="notes-block-main"></div>
     </div>
 
     <div class="examples">
@@ -123,5 +133,6 @@
     </div>
     <script src="js/planList.js"></script>
     <script src="js/dashboard.js"></script>
+    <script src="js/note.js"></script>
   </body>
 </html>
