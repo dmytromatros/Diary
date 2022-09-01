@@ -1,10 +1,12 @@
 "use strict";
 let allLi = document.querySelectorAll(".dashboard__li");
 let container = document.querySelector(".coontainer");
+let dashboard = document.querySelector(".dashboard");
 
 activeli();
 changeWorckSpace();
 titleOpacity();
+openToFullSize();
 
 function activeli() {
   allLi.forEach((li) => {
@@ -45,5 +47,12 @@ function titleOpacity() {
         ? ((tit.style.opacity = "0.2"), (tit.style.zIndex = "0"))
         : ((tit.style.opacity = "1"), (tit.style.zIndex = "10"));
     });
+  });
+}
+
+function openToFullSize() {
+  let openBtn = document.querySelector(".dashbboard__open-menu");
+  openBtn.addEventListener("click", () => {
+    dashboard.classList.toggle("dashboard__small");
   });
 }

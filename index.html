@@ -29,18 +29,24 @@
     <title>Dairy</title>
   </head>
   <body>
-    <aside class="dashboard">
+    <aside class="dashboard dashboard__small">
       <div class="dashboard__title">
         <span>My dairy</span>
-        <ion-icon name="list-outline"></ion-icon>
+        <div class="dashboard__icon dashbboard__open-menu">
+          <ion-icon name="list-outline"></ion-icon>
+        </div>
       </div>
       <ul>
         <li class="dashboard__li plan-li">
-          <ion-icon name="checkbox-outline"></ion-icon>
+          <div class="dashboard__icon">
+            <ion-icon name="checkbox-outline"></ion-icon>
+          </div>
           <span>Plan list </span>
         </li>
         <li class="dashboard__li note-li">
-          <ion-icon name="albums-outline"></ion-icon>
+          <div class="dashboard__icon">
+            <ion-icon name="albums-outline"></ion-icon>
+          </div>
           <span>My notes</span>
         </li>
       </ul>

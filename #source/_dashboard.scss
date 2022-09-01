@@ -10,6 +10,7 @@
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   box-shadow: 5px 0 5px 0px rgb(230, 230, 230);
+  transition: 0.2s;
   &__title {
     width: 100%;
     display: flex;
@@ -22,6 +23,10 @@
     color: #fff;
     font-size: 30px;
     font-weight: 600;
+    span {
+      min-width: 133px;
+      transition: 0.2s;
+    }
   }
   ul {
     display: block;
@@ -37,6 +42,7 @@
     gap: 40px;
     height: 50px;
     margin-bottom: 10px;
+    width: calc($dashboardWidth - 10px);
     cursor: pointer;
     ion-icon {
       font-size: 30px;
@@ -89,5 +95,31 @@
   /* width */
   &::-webkit-scrollbar {
     width: 0px;
+  }
+}
+.dashboard__small {
+  width: 55px;
+  ul {
+    padding: 10px 7px;
+  }
+  .dashboard__icon {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+  }
+  .dashboard__li {
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    span {
+      display: none;
+    }
+  }
+  .dashboard__title {
+    gap: 10px;
+    span {
+      margin-left: -143px;
+      // width: 133px;
+    }
   }
 }

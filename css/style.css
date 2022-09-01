@@ -94,13 +94,14 @@ h6 {
   position: fixed;
   top: 0;
   left: 0;
-  width: 260px;
+  width: 250px;
   height: 100vh;
   overflow: hidden;
   overflow-y: scroll;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   box-shadow: 5px 0 5px 0px rgb(230, 230, 230);
+  transition: 0.2s;
   /* width */
 }
 .dashboard__title {
@@ -116,6 +117,10 @@ h6 {
   font-size: 30px;
   font-weight: 600;
 }
+.dashboard__title span {
+  min-width: 133px;
+  transition: 0.2s;
+}
 .dashboard ul {
   display: block;
   padding: 0 5px;
@@ -130,6 +135,7 @@ h6 {
   gap: 40px;
   height: 50px;
   margin-bottom: 10px;
+  width: 240px;
   cursor: pointer;
 }
 .dashboard__li ion-icon {
@@ -181,6 +187,32 @@ h6 {
 }
 .dashboard::-webkit-scrollbar {
   width: 0px;
+}
+
+.dashboard__small {
+  width: 55px;
+}
+.dashboard__small ul {
+  padding: 10px 7px;
+}
+.dashboard__small .dashboard__icon {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
+.dashboard__small .dashboard__li {
+  padding: 0;
+  width: 40px;
+  height: 40px;
+}
+.dashboard__small .dashboard__li span {
+  display: none;
+}
+.dashboard__small .dashboard__title {
+  gap: 10px;
+}
+.dashboard__small .dashboard__title span {
+  margin-left: -143px;
 }
 
 .plan-list-main {
@@ -332,8 +364,8 @@ h6 {
 .plan-list-main .plan-list__big-screen-btn {
   position: fixed;
   height: 70px;
-  width: calc((100% - 260px) / 2);
-  right: calc((100% - 260px) / 2 / 2);
+  width: calc((100% - 250px) / 2);
+  right: calc((100% - 250px) / 2 / 2);
   bottom: 10px;
   border-radius: 15px;
   z-index: 10;
@@ -484,7 +516,7 @@ body {
 
 .coontainer {
   min-height: 100%;
-  margin-left: 260px;
+  margin-left: 250px;
   position: relative;
   padding: 0 20px;
 }
@@ -515,8 +547,8 @@ body {
 
 .main__title {
   position: fixed;
-  width: calc((100% - 260px) / 2);
-  right: calc((100% - 260px) / 2 / 2);
+  width: calc((100% - 250px) / 2);
+  right: calc((100% - 250px) / 2 / 2);
   top: -2px;
   font-size: 30px;
   border-bottom-left-radius: 15px;
