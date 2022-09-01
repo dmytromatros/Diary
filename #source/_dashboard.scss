@@ -1,0 +1,93 @@
+@import "_variables";
+.dashboard {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: $dashboardWidth;
+  height: 100vh;
+  overflow: hidden;
+  overflow-y: scroll;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  box-shadow: 5px 0 5px 0px rgb(230, 230, 230);
+  &__title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 20px;
+    height: 70px;
+    background-color: $dashboardColor;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+  }
+  ul {
+    display: block;
+    padding: 0 5px;
+    padding-top: 10px;
+    box-shadow: 0px 7px 5px -5px rgba(34, 60, 80, 0.6) inset;
+  }
+  &__li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10px;
+    gap: 40px;
+    height: 50px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    ion-icon {
+      font-size: 30px;
+      background-color: $dashboardColor;
+      padding: 5px;
+      border-radius: 8px;
+      color: #fff;
+    }
+    span {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: $dashboardColor;
+    }
+    &:hover {
+      background-color: $dashboardColor;
+      border-radius: 15px;
+      ion-icon {
+        color: $dashboardColor;
+        background-color: #fff;
+      }
+      span {
+        color: #fff;
+      }
+    }
+  }
+  .active-dashboard-li {
+    position: relative;
+    background-color: $dashboardColor;
+    border-radius: 15px;
+    ion-icon {
+      color: $dashboardColor;
+      background-color: #fff;
+    }
+    span {
+      color: #fff;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      right: 10px;
+      top: 0;
+      border: 0 solid transparent;
+      border-bottom-width: 9px;
+      border-top-width: 9px;
+      border-left: 25px solid #fff;
+      margin-top: 17.5px;
+    }
+  }
+  /* width */
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+}
