@@ -98,18 +98,34 @@
         </div>
       </div>
       <div class="notes-block-main">
-        <div class="notes-block-main__inner">
+        <div class="notes-block-main__inside">
           <div class="main__title">Here is your notes!</div>
           <div class="notes-block-main__inner">
-            <button class="plus">+</button>
-            <span class="fz-count">24</span>
-            <button class="minus">-</button>
+            <div class="notes-block-main__btn">
+              <div class="notes-block-main__font-resizer">
+                <button class="notes-block-main__font-minus">-</button>
+                <span class="notes-block-main__font-count">24</span>
+                <button class="notes-block-main__font-plus">+</button>
+              </div>
+              <div class="notes-block-main__add-btn">
+                <ion-icon name="add-circle-outline"></ion-icon>
+              </div>
+              <div class="notes-block-main__save-btn">
+                <ion-icon name="bookmark-outline"></ion-icon>
+              </div>
+            </div>
             <div class="one-note">
               <div class="one-note__title">
                 <input type="text" placeholder="Note name" />
               </div>
+              <button class="one-note__remove-all-btn">
+                <ion-icon name="close-circle-outline"></ion-icon>
+              </button>
               <div class="one-note__textarea">
-                <textarea class="textarea-note"></textarea>
+                <textarea
+                  class="textarea-note"
+                  placeholder="Type here..."
+                ></textarea>
                 <textarea class="textarea-note-hidden" disabled></textarea>
               </div>
             </div>

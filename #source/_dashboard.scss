@@ -10,7 +10,7 @@
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   box-shadow: 5px 0 5px 0px rgb(230, 230, 230);
-  transition: 0.2s;
+  transition: $mainTransition;
   z-index: 11;
   &__title {
     width: 100%;
@@ -26,7 +26,7 @@
     font-weight: 600;
     span {
       min-width: 133px;
-      transition: 0.2s;
+      transition: $mainTransition;
     }
   }
   ul {

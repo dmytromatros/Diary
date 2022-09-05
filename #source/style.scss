@@ -209,6 +209,15 @@ body {
   box-shadow: 0 2px 10px #999;
   z-index: 10;
   background-color: rgba(255, 255, 255, 0.8);
+  transition: $mainTransition;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -khtml-user-select: none; /* Konqueror */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  not supported by any browser */
 }
 .exampl-list,
 .example-list-field {

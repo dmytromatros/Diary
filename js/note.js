@@ -2,10 +2,18 @@
 
 let textarea = document.querySelector(".textarea-note");
 let textareaHidden = document.querySelector(".textarea-note-hidden");
+let noteBottomBtn = document.querySelector(".notes-block-main__btn");
 
 textAreaAdjust(textarea);
 fontSize();
-
+window.addEventListener("resize", function () {
+  containerWidth = container.offsetWidth;
+  noteBottomBtn.style.width = `${containerWidth - 40}px`;
+});
+window.addEventListener("click", function () {
+  containerWidth = container.offsetWidth;
+  noteBottomBtn.style.width = `${containerWidth - 40}px`;
+});
 function textAreaAdjust(that) {
   textarea.addEventListener("keydown", () => {
     textareaHidden.value = that.value;
@@ -18,9 +26,9 @@ function textAreaAdjust(that) {
 }
 
 function fontSize() {
-  let plus = document.querySelector(".plus");
-  let minus = document.querySelector(".minus");
-  let countSpan = document.querySelector(".fz-count");
+  let plus = document.querySelector(".notes-block-main__font-plus");
+  let minus = document.querySelector(".notes-block-main__font-minus");
+  let countSpan = document.querySelector(".notes-block-main__font-count");
   let fzCount = 24;
 
   plus.onclick = function () {

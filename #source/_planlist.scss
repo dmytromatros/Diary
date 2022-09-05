@@ -157,7 +157,7 @@
     border-radius: 15px;
     z-index: 10;
     background-color: rgba(92, 105, 253, 0.35);
-    transition: 0.2s;
+    transition: $mainTransition;
   }
   .big-screen {
     position: absolute;
@@ -208,7 +208,7 @@
   border-radius: 15px;
   font-size: 20px;
   transform: translateY(-200%);
-  transition: 0.5s;
+  transition: $mainTransition;
 }
 .plan-list__small-screen-btn {
   display: none;
