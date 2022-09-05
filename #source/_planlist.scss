@@ -153,11 +153,11 @@
     position: fixed;
     height: 70px;
     width: calc(calc(100% - $dashboardWidth) / 2);
-    right: calc(calc(calc(100% - $dashboardWidth) / 2) / 2);
     bottom: 10px;
     border-radius: 15px;
     z-index: 10;
-    background-color: rgba(92, 105, 253, 0.1);
+    background-color: rgba(92, 105, 253, 0.35);
+    transition: 0.2s;
   }
   .big-screen {
     position: absolute;

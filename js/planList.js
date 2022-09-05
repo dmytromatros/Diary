@@ -1,6 +1,20 @@
 "use strict";
 listFunction();
 
+let container = document.querySelector(".coontainer");
+let bottomBtn = document.querySelector(".plan-list__big-screen-btn");
+let containerWidth = container.offsetWidth;
+containerWidth = container.offsetWidth;
+bottomBtn.style.width = `${containerWidth - 40}px`;
+window.addEventListener("resize", function () {
+  containerWidth = container.offsetWidth;
+  bottomBtn.style.width = `${containerWidth - 40}px`;
+});
+window.addEventListener("click", function () {
+  containerWidth = container.offsetWidth;
+  bottomBtn.style.width = `${containerWidth - 40}px`;
+});
+
 function listFunction() {
   // localStorage.clear();
 
