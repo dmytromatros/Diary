@@ -6,11 +6,7 @@ let noteBottomBtn = document.querySelector(".notes-block-main__btn");
 let allNotes = document.querySelectorAll(".one-note");
 let fzCount = 24;
 
-textAreaAdjust();
-fontSize();
-notemovements();
-addNewNote();
-removeOneNote();
+programStart();
 
 window.addEventListener("resize", function () {
   containerWidth = container.offsetWidth;
@@ -20,6 +16,38 @@ window.addEventListener("click", function () {
   containerWidth = container.offsetWidth;
   noteBottomBtn.style.width = `${containerWidth - 40}px`;
 });
+
+// Start the programe, creating the notes
+function programStart() {
+  textAreaAdjust();
+  fontSize();
+  notemovements();
+  addNewNote();
+  removeOneNote();
+  onSaveBtn();
+
+  let storageNotesCount = localStorage.getItem("notesCount");
+
+  if (storageNotesCount < 1) {
+    createNewNote();
+    console.log(storageNotesCount);
+  } else if ((storageNotesCount) => 1) {
+    for (let index = 0; index < storageNotesCount; index++) {
+      createNewNote();
+    }
+    allNotes = document.querySelectorAll(".one-note");
+    for (let index = 0; index < allNotes.length; index++) {
+      allNotes[index].querySelector(".one-note__title input").value =
+        localStorage.getItem(`note[${index}]_title`);
+      allNotes[index].querySelector(".textarea-note").value =
+        localStorage.getItem(`note[${index}]_text`);
+      let noteHeight = localStorage.getItem(`note[${index}]_height`);
+      allNotes[index].querySelector(
+        ".textarea-note"
+      ).style.height = `${noteHeight}px`;
+    }
+  }
+}
 
 // Textarea height adaptive to the text height
 function textAreaAdjust() {
@@ -107,15 +135,20 @@ function notemovements() {
 function addNewNote() {
   let addNewNoteBtn = document.querySelector(".notes-block-main__add-btn");
   addNewNoteBtn.addEventListener("click", () => {
-    let newNote = document.querySelector(".example-note").cloneNode(true);
-    newNote.classList.add("one-note");
-    newNote.classList.remove("example-note");
-    newNote.classList.remove("example");
-    randomColor(newNote);
-    document.querySelector(".notes-block-main__inner").append(newNote);
-    allNotes = document.querySelectorAll(".one-note");
-    reloader();
+    createNewNote();
   });
+}
+
+// New note
+function createNewNote() {
+  let newNote = document.querySelector(".example-note").cloneNode(true);
+  newNote.classList.add("one-note");
+  newNote.classList.remove("example-note");
+  newNote.classList.remove("example");
+  randomColor(newNote);
+  document.querySelector(".notes-block-main__inner").append(newNote);
+  allNotes = document.querySelectorAll(".one-note");
+  reloader();
 }
 
 // Remove one note by click ox it
@@ -161,4 +194,26 @@ function reloader() {
   notemovements();
   removeOneNote();
   textAreaAdjust();
+}
+
+// On save btn click
+function onSaveBtn() {
+  let saveAllNote = document.querySelector(".notes-block-main__save-btn");
+  saveAllNote.addEventListener("click", () => {
+    localStorage.clear();
+    allNotes = document.querySelectorAll(".one-note");
+    let notesCount = allNotes.length;
+    localStorage.setItem("notesCount", notesCount);
+    for (let index = 0; index < notesCount; index++) {
+      let title = allNotes[index].querySelector(".one-note__title input").value;
+      localStorage.setItem(`note[${index}]_title`, title);
+      let textInside = allNotes[index].querySelector(".textarea-note").value;
+      localStorage.setItem(`note[${index}]_text`, textInside);
+      let noteHeight = allNotes[index]
+        .querySelector(".textarea-note")
+        .getBoundingClientRect().height;
+      console.log(noteHeight);
+      localStorage.setItem(`note[${index}]_height`, noteHeight);
+    }
+  });
 }
